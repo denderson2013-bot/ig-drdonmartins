@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analise @drdonmartins.ai | Naia Intelligence</title>
+<meta name="description" content="Analise BMAD completa do perfil @drdonmartins.ai - Dr. Don Martins - IA Aplicada a Medicina">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#07070f;--surface:rgba(255,255,255,0.03);--surface-hover:rgba(255,255,255,0.06);
+--border:rgba(255,255,255,0.06);--border-hover:rgba(255,255,255,0.12);
+--text:#e8e8ed;--text-secondary:rgba(255,255,255,0.5);--text-muted:rgba(255,255,255,0.3);
+--brand-indigo:#818cf8;--brand-purple:#a78bfa;--brand-blue:#60a5fa;--brand-green:#34d399;
+--brand-amber:#fbbf24;--brand-rose:#fb7185;--brand-cyan:#22d3ee;
+--glass:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08);
+--radius:16px;--radius-sm:10px;--radius-xs:6px;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Inter',system-ui,-apple-system,sans-serif;
+background:var(--bg);color:var(--text);line-height:1.6;
+min-height:100vh;overflow-x:hidden;
+}
+body::before{
+content:'';position:fixed;inset:0;z-index:-1;
+background:
+radial-gradient(ellipse 800px 600px at 20% 10%,rgba(34,211,238,0.06),transparent),
+radial-gradient(ellipse 600px 400px at 80% 80%,rgba(129,140,248,0.04),transparent),
+radial-gradient(ellipse 400px 300px at 50% 50%,rgba(52,211,153,0.03),transparent);
+}
+
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+.profile-header{
+padding:48px 0 32px;text-align:center;
+}
+.avatar-wrapper{
+position:relative;display:inline-block;margin-bottom:20px;
+}
+.avatar{
+width:96px;height:96px;border-radius:50%;
+background:linear-gradient(135deg,var(--brand-cyan),var(--brand-indigo));
+display:flex;align-items:center;justify-content:center;
+font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:#fff;
+border:2px solid var(--glass-border);
+}
+.avatar-ring{
+position:absolute;inset:-4px;border-radius:50%;
+background:conic-gradient(var(--brand-cyan),var(--brand-indigo),var(--brand-purple),var(--brand-green),var(--brand-cyan));
+z-index:-1;opacity:0.6;
+}
+.profile-name{
+font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;
+color:var(--text);margin-bottom:4px;
+}
+.profile-handle{
+font-size:15px;color:var(--text-secondary);margin-bottom:12px;
+}
+.profile-bio{
+font-size:13px;color:var(--text-muted);max-width:480px;margin:0 auto 16px;line-height:1.6;
+}
+.badge-row{
+display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;
+}
+.badge{
+display:inline-flex;align-items:center;gap:4px;
+padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;
+background:var(--surface);border:1px solid var(--border);color:var(--text-secondary);
+}
+.badge-business{border-color:rgba(129,140,248,0.3);color:var(--brand-indigo)}
+.badge-niche{border-color:rgba(34,211,238,0.3);color:var(--brand-cyan)}
+.badge-exp{border-color:rgba(52,211,153,0.3);color:var(--brand-green)}
+.badge-mec{border-color:rgba(251,191,36,0.3);color:var(--brand-amber)}
+.badge-mit{border-color:rgba(167,139,250,0.3);color:var(--brand-purple)}
+.analysis-date{
+font-size:11px;color:var(--text-muted);margin-top:8px;
+}
+
+/* BMAD BAR */
+.bmad-bar{
+display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+margin-bottom:32px;
+}
+@media(max-width:640px){.bmad-bar{grid-template-columns:repeat(2,1fr)}.bmad-bar .bmad-item:last-child{grid-column:1/-1}}
+.bmad-item{
+background:var(--glass);border:1px solid var(--glass-border);
+border-radius:var(--radius-sm);padding:16px 12px;text-align:center;
+transition:all 0.3s;
+}
+.bmad-item:hover{background:var(--surface-hover);border-color:var(--border-hover)}
+.bmad-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.bmad-score{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1}
+.bmad-max{font-size:12px;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:400}
+.bmad-item[data-type="brand"] .bmad-label,.bmad-item[data-type="brand"] .bmad-score{color:var(--brand-indigo)}
+.bmad-item[data-type="market"] .bmad-label,.bmad-item[data-type="market"] .bmad-score{color:var(--brand-purple)}
+.bmad-item[data-type="audit"] .bmad-label,.bmad-item[data-type="audit"] .bmad-score{color:var(--brand-blue)}
+.bmad-item[data-type="direction"] .bmad-label,.bmad-item[data-type="direction"] .bmad-score{color:var(--brand-green)}
+.bmad-item[data-type="total"]{
+background:linear-gradient(135deg,rgba(129,140,248,0.08),rgba(52,211,153,0.08));
+border-color:rgba(255,255,255,0.1);
+}
+.bmad-item[data-type="total"] .bmad-label{color:var(--text-secondary)}
+.bmad-item[data-type="total"] .bmad-score{color:#fff}
+
+/* SCORE BAR */
+.score-bar-wrap{
+width:100%;height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:8px;overflow:hidden;
+}
+.score-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+
+/* STATS ROW */
+.stats-row{
+display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;
+}
+@media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{
+background:var(--glass);border:1px solid var(--glass-border);
+border-radius:var(--radius-sm);padding:16px;text-align:center;
+}
+.stat-value{
+font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.2;
+}
+.stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* TABS */
+.tabs-container{margin-bottom:32px;position:sticky;top:0;z-index:100;padding:12px 0;background:rgba(7,7,15,0.9);backdrop-filter:blur(20px)}
+.tabs-scroll{
+display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
+padding-bottom:4px;
+}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.tab-btn{
+flex-shrink:0;padding:8px 16px;border-radius:8px;border:1px solid transparent;
+background:transparent;color:var(--text-muted);font-size:13px;font-weight:500;
+cursor:pointer;transition:all 0.3s;font-family:'Inter',sans-serif;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--text-secondary);background:var(--surface)}
+.tab-btn.active{color:#fff;background:var(--surface);border-color:var(--border-hover)}
+.tab-btn[data-tab="brand"].active{color:var(--brand-indigo);border-color:rgba(129,140,248,0.3)}
+.tab-btn[data-tab="market"].active{color:var(--brand-purple);border-color:rgba(167,139,250,0.3)}
+.tab-btn[data-tab="audit"].active{color:var(--brand-blue);border-color:rgba(96,165,250,0.3)}
+.tab-btn[data-tab="direction"].active{color:var(--brand-green);border-color:rgba(52,211,153,0.3)}
+.tab-btn[data-tab="monetizacao"].active{color:var(--brand-amber);border-color:rgba(251,191,36,0.3)}
+.tab-btn[data-tab="plano30"].active{color:var(--brand-rose);border-color:rgba(251,113,133,0.3)}
+.tab-btn[data-tab="vendas"].active{color:var(--brand-purple);border-color:rgba(167,139,250,0.3)}
+.tab-btn[data-tab="spin"].active{color:var(--brand-cyan);border-color:rgba(34,211,238,0.3)}
+
+/* TAB CONTENT */
+.tab-panel{display:none;animation:fadeIn 0.4s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* CARDS */
+.card{
+background:var(--glass);border:1px solid var(--glass-border);
+border-radius:var(--radius);padding:24px;margin-bottom:16px;
+transition:border-color 0.3s;
+}
+.card:hover{border-color:var(--border-hover)}
+.card-header{
+display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.card-icon{
+width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+font-size:16px;flex-shrink:0;
+}
+.card-title{
+font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;
+}
+.card-subtitle{font-size:12px;color:var(--text-muted);margin-top:2px}
+
+/* LISTS */
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.insight-item{
+display:flex;gap:10px;padding:12px;border-radius:var(--radius-xs);
+background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+font-size:14px;color:var(--text);line-height:1.5;
+}
+.insight-bullet{
+flex-shrink:0;width:6px;height:6px;border-radius:50%;margin-top:7px;
+}
+.insight-item.positive .insight-bullet{background:var(--brand-green)}
+.insight-item.negative .insight-bullet{background:var(--brand-rose)}
+.insight-item.neutral .insight-bullet{background:var(--brand-blue)}
+.insight-item.warning .insight-bullet{background:var(--brand-amber)}
+
+/* METRIC GRID */
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.metric-card{
+background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);
+border-radius:var(--radius-sm);padding:16px;
+}
+.metric-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.metric-value{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#fff}
+.metric-sub{font-size:12px;color:var(--text-secondary);margin-top:4px}
+
+/* SECTION TITLE */
+.section-title{
+font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;
+color:var(--text);margin:24px 0 12px;padding-bottom:8px;
+border-bottom:1px solid var(--border);
+}
+
+/* SPIN SELLING STEPS */
+.spin-step{
+background:var(--glass);border:1px solid var(--glass-border);
+border-radius:var(--radius);padding:24px;margin-bottom:16px;
+position:relative;overflow:hidden;
+}
+.spin-step::before{
+content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+}
+.spin-step[data-step="rapport"]::before{background:var(--brand-cyan)}
+.spin-step[data-step="situacao"]::before{background:var(--brand-indigo)}
+.spin-step[data-step="problema"]::before{background:var(--brand-rose)}
+.spin-step[data-step="implicacao"]::before{background:var(--brand-amber)}
+.spin-step[data-step="payoff"]::before{background:var(--brand-green)}
+.spin-step-header{
+display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.spin-step-number{
+width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+font-size:14px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.spin-step[data-step="rapport"] .spin-step-number{background:rgba(34,211,238,0.2);color:var(--brand-cyan)}
+.spin-step[data-step="situacao"] .spin-step-number{background:rgba(129,140,248,0.2);color:var(--brand-indigo)}
+.spin-step[data-step="problema"] .spin-step-number{background:rgba(251,113,133,0.2);color:var(--brand-rose)}
+.spin-step[data-step="implicacao"] .spin-step-number{background:rgba(251,191,36,0.2);color:var(--brand-amber)}
+.spin-step[data-step="payoff"] .spin-step-number{background:rgba(52,211,153,0.2);color:var(--brand-green)}
+.spin-step-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff}
+.spin-step-subtitle{font-size:12px;color:var(--text-muted)}
+.quote-block{
+background:rgba(255,255,255,0.02);border-left:2px solid var(--brand-cyan);
+padding:12px 16px;border-radius:0 var(--radius-xs) var(--radius-xs) 0;
+margin:12px 0;font-size:14px;color:var(--text-secondary);font-style:italic;
+}
+.question-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.question-item{
+font-size:14px;color:var(--text);padding:8px 12px;
+background:rgba(255,255,255,0.015);border-radius:var(--radius-xs);
+border:1px solid rgba(255,255,255,0.04);
+}
+.question-item::before{content:'\201C';color:var(--text-muted);margin-right:2px}
+.question-item::after{content:'\201D';color:var(--text-muted);margin-left:2px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin:12px 0}
+.pain-item{
+display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text-secondary);
+}
+.pain-num{
+flex-shrink:0;width:20px;height:20px;border-radius:50%;
+background:rgba(251,113,133,0.15);color:var(--brand-rose);
+display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+}
+
+/* RULES BOX */
+.rules-box{
+background:rgba(251,191,36,0.04);border:1px solid rgba(251,191,36,0.15);
+border-radius:var(--radius-sm);padding:20px;margin-top:16px;
+}
+.rules-title{
+font-size:13px;font-weight:600;color:var(--brand-amber);text-transform:uppercase;
+letter-spacing:1px;margin-bottom:12px;
+}
+.rules-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rule-item{font-size:13px;color:var(--text-secondary);display:flex;gap:8px;align-items:flex-start}
+.rule-icon{flex-shrink:0;font-size:12px;margin-top:2px}
+
+/* EVENT CARD */
+.event-card{
+background:linear-gradient(135deg,rgba(34,211,238,0.06),rgba(129,140,248,0.04));
+border:1px solid rgba(34,211,238,0.15);border-radius:var(--radius);padding:24px;margin-bottom:16px;
+}
+.event-title{
+font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brand-cyan);
+margin-bottom:4px;
+}
+.event-date{font-size:14px;color:var(--text-secondary);margin-bottom:16px}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+@media(max-width:480px){.price-grid{grid-template-columns:1fr}}
+.price-card{
+background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+border-radius:var(--radius-sm);padding:16px;text-align:center;
+}
+.price-card.highlight{border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.05)}
+.price-type{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:4px}
+.price-value{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff}
+.price-detail{font-size:12px;color:var(--text-secondary);margin-top:6px;line-height:1.5}
+
+/* FUNNEL */
+.funnel-step{
+display:flex;align-items:center;gap:16px;padding:12px 16px;
+background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+border-radius:var(--radius-xs);margin-bottom:8px;
+}
+.funnel-arrow{color:var(--text-muted);font-size:18px;flex-shrink:0}
+.funnel-label{font-size:14px;color:var(--text)}
+.funnel-rate{font-size:12px;color:var(--brand-green);margin-left:auto;font-weight:600;flex-shrink:0}
+
+/* PRODUCT LIST */
+.product-item{
+display:flex;gap:12px;padding:14px;
+background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+border-radius:var(--radius-xs);margin-bottom:8px;
+}
+.product-num{
+flex-shrink:0;width:24px;height:24px;border-radius:6px;
+background:rgba(34,211,238,0.15);color:var(--brand-cyan);
+display:flex;align-items:center;justify-content:center;
+font-size:11px;font-weight:700;
+}
+.product-info{flex:1}
+.product-name{font-size:14px;color:#fff;font-weight:500;margin-bottom:2px}
+.product-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+
+/* EXECUTIVE SUMMARY */
+.executive-summary{
+background:linear-gradient(135deg,rgba(34,211,238,0.06),rgba(129,140,248,0.04));
+border:1px solid rgba(34,211,238,0.12);border-radius:var(--radius);
+padding:24px;margin-bottom:24px;
+}
+.executive-summary p{font-size:15px;color:var(--text);line-height:1.7}
+
+/* WEEK CARD */
+.week-card{
+background:var(--glass);border:1px solid var(--glass-border);
+border-radius:var(--radius);padding:24px;margin-bottom:16px;
+position:relative;overflow:hidden;
+}
+.week-card::before{
+content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+}
+.week-card[data-week="1"]::before{background:var(--brand-indigo)}
+.week-card[data-week="2"]::before{background:var(--brand-purple)}
+.week-card[data-week="3"]::before{background:var(--brand-amber)}
+.week-card[data-week="4"]::before{background:var(--brand-rose)}
+.week-title{
+font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;
+}
+.week-subtitle{font-size:12px;color:var(--text-muted);margin-bottom:16px}
+.task-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.task-item{
+font-size:13px;color:var(--text-secondary);padding:8px 12px;
+background:rgba(255,255,255,0.015);border-radius:var(--radius-xs);
+border:1px solid rgba(255,255,255,0.04);display:flex;gap:8px;align-items:flex-start;
+}
+.task-bullet{flex-shrink:0;margin-top:2px;font-size:12px}
+
+/* TIMELINE */
+.timeline-item{
+display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.timeline-item:last-child{border-bottom:none}
+.timeline-date{
+flex-shrink:0;width:80px;font-size:12px;color:var(--text-muted);font-weight:500;padding-top:2px;
+}
+.timeline-content{flex:1}
+.timeline-title{font-size:14px;color:#fff;font-weight:500;margin-bottom:4px}
+.timeline-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+
+/* FOOTER */
+.footer{
+text-align:center;padding:40px 0;border-top:1px solid var(--border);margin-top:48px;
+}
+.footer-text{font-size:12px;color:var(--text-muted)}
+.footer-brand{
+font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;
+color:var(--text-secondary);margin-bottom:4px;
+}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+.profile-name{font-size:24px}
+.bmad-score{font-size:26px}
+.card{padding:18px}
+.container{padding:0 14px}
+.spin-step{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="profile-header">
+<div class="avatar-wrapper">
+<div class="avatar-ring"></div>
+<div class="avatar">DM</div>
+</div>
+<h1 class="profile-name">Dr. Don Martins</h1>
+<p class="profile-handle">@drdonmartins.ai</p>
+<p class="profile-bio">Medico, administrador, especialista em IA aplicada. MBA em IA pela PUC-PR. Cursando MIT Inteligencia Generativa. Founder de 4 empresas ativas.</p>
+<div class="badge-row">
+<span class="badge badge-business">Business Account</span>
+<span class="badge badge-niche">IA + Medicina</span>
+<span class="badge badge-exp">CRM Ativo</span>
+<span class="badge badge-mec">MBA PUC-PR</span>
+<span class="badge badge-mit">MIT</span>
+</div>
+<div class="badge-row">
+<span class="badge">PMG Group</span>
+<span class="badge">Founder 4 empresas</span>
+<span class="badge">donmartins.ai</span>
+</div>
+<p class="analysis-date">Analise gerada em 14 de abril de 2026</p>
+</header>
+
+<!-- BMAD BAR -->
+<div class="bmad-bar">
+<div class="bmad-item" data-type="brand">
+<div class="bmad-label">Brand</div>
+<div class="bmad-score">70 <span class="bmad-max">/100</span></div>
+<div class="score-bar-wrap"><div class="score-bar-fill" style="width:70%;background:var(--brand-indigo)"></div></div>
+</div>
+<div class="bmad-item" data-type="market">
+<div class="bmad-label">Market</div>
+<div class="bmad-score">85 <span class="bmad-max">/100</span></div>
+<div class="score-bar-wrap"><div class="score-bar-fill" style="width:85%;background:var(--brand-purple)"></div></div>
+</div>
+<div class="bmad-item" data-type="audit">
+<div class="bmad-label">Audit</div>
+<div class="bmad-score">60 <span class="bmad-max">/100</span></div>
+<div class="score-bar-wrap"><div class="score-bar-fill" style="width:60%;background:var(--brand-blue)"></div></div>
+</div>
+<div class="bmad-item" data-type="direction">
+<div class="bmad-label">Direction</div>
+<div class="bmad-score">78 <span class="bmad-max">/100</span></div>
+<div class="score-bar-wrap"><div class="score-bar-fill" style="width:78%;background:var(--brand-green)"></div></div>
+</div>
+<div class="bmad-item" data-type="total">
+<div class="bmad-label">BMAD Total</div>
+<div class="bmad-score">73 <span class="bmad-max">/100</span></div>
+<div class="score-bar-wrap"><div class="score-bar-fill" style="width:73%;background:linear-gradient(90deg,var(--brand-indigo),var(--brand-green))"></div></div>
+</div>
+</div>
+
+<!-- STATS ROW -->
+<div class="stats-row">
+<div class="stat-card">
+<div class="stat-value">~5K</div>
+<div class="stat-label">Seguidores</div>
+</div>
+<div class="stat-card">
+<div class="stat-value">R$147</div>
+<div class="stat-label">Evento</div>
+</div>
+<div class="stat-card">
+<div class="stat-value">5</div>
+<div class="stat-label">Aplicacoes ao Vivo</div>
+</div>
+<div class="stat-card">
+<div class="stat-value">02/Mai</div>
+<div class="stat-label">Data Imersao</div>
+</div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="executive-summary">
+<p>Dr. Don Martins esta posicionado num mercado enorme e praticamente virgem: IA aplicada a medicina. Com credenciais solidas (CRM ativo, MBA PUC-PR, MIT), ele tem a autoridade que o nicho exige. O perfil ainda e pequeno mas o timing e perfeito. A imersao a R$147 e porta de entrada inteligente pra converter medicos ceticos em clientes recorrentes. Principal desafio: escalar a audiencia rapidamente antes que o nicho fique saturado.</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs-container">
+<div class="tabs-scroll">
+<button class="tab-btn active" data-tab="brand">B - Brand</button>
+<button class="tab-btn" data-tab="market">M - Market</button>
+<button class="tab-btn" data-tab="audit">A - Audit</button>
+<button class="tab-btn" data-tab="direction">D - Direction</button>
+<button class="tab-btn" data-tab="monetizacao">Monetizacao</button>
+<button class="tab-btn" data-tab="plano30">Plano 30 Dias</button>
+<button class="tab-btn" data-tab="vendas">Plano de Vendas</button>
+<button class="tab-btn" data-tab="spin">SPIN Selling</button>
+</div>
+</div>
+
+<!-- TAB: BRAND -->
+<div class="tab-panel active" id="tab-brand">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(129,140,248,0.12);color:var(--brand-indigo)">B</div>
+<div>
+<div class="card-title">Brand Analysis</div>
+<div class="card-subtitle">Score: 70/100</div>
+</div>
+</div>
+
+<h3 class="section-title">Identidade de Marca</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Arquetipo</div>
+<div class="metric-value" style="font-size:20px">Sabio / Inovador</div>
+<div class="metric-sub">Medico que ensina outros medicos a usar IA</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Tom de Voz</div>
+<div class="metric-value" style="font-size:20px">Tecnico Acessivel</div>
+<div class="metric-sub">Profissional, direto, sem jargao de programador</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Diferencial Chave</div>
+<div class="metric-value" style="font-size:18px">Medico COM CRM</div>
+<div class="metric-sub">Nao e dev vendendo pra medico. E medico usando IA na pratica</div>
+</div>
+</div>
+
+<h3 class="section-title">Pilares de Conteudo</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>IA pratica pra medicos: aplicacoes reais, nao teoria</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Eficiencia na rotina medica: menos burocracia, mais paciente</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Autonomia tecnologica: medico nao depende de TI pra usar IA</li>
+</ul>
+
+<h3 class="section-title">Gaps Identificados</h3>
+<ul class="insight-list">
+<li class="insight-item negative"><span class="insight-bullet"></span>Perfil ainda pequeno (~5K), precisa escalar audiencia rapidamente</li>
+<li class="insight-item negative"><span class="insight-bullet"></span>Poderia ter mais prova social e casos documentados publicamente</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>Falta posicionamento mais claro entre tantos "gurus de IA" genericos</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB: MARKET -->
+<div class="tab-panel" id="tab-market">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(167,139,250,0.12);color:var(--brand-purple)">M</div>
+<div>
+<div class="card-title">Market Analysis</div>
+<div class="card-subtitle">Score: 85/100</div>
+</div>
+</div>
+
+<h3 class="section-title">Dimensao do Mercado</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Nicho</div>
+<div class="metric-value" style="font-size:18px">IA + Medicina</div>
+<div class="metric-sub">Mercado enorme e praticamente virgem</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Sub-nicho</div>
+<div class="metric-value" style="font-size:18px">Automacao Consultorio</div>
+<div class="metric-sub">Automacao de consultorio medico com IA</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">TAM Brasil</div>
+<div class="metric-value">500K+</div>
+<div class="metric-sub">Medicos no Brasil, menos de 1% usa IA de verdade</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Concorrencia</div>
+<div class="metric-value" style="font-size:18px;color:var(--brand-green)">Baixissima</div>
+<div class="metric-sub">Poucos medicos ensinando IA pra medicos</div>
+</div>
+</div>
+
+<h3 class="section-title">Tendencias do Mercado</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>CFM regulamentou IA na medicina (Resolucao 2.454/2026). Caminho aberto legalmente.</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Burnout medico crescente: profissionais buscando automacao pra sobreviver</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Telemedicina + IA acelerando pos-pandemia. Tendencia irreversivel.</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>First-mover advantage: quem se posicionar agora domina o nicho nos proximos anos</li>
+</ul>
+
+<h3 class="section-title">Oportunidades</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>Ser a referencia BR numero 1 em IA para medicos</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Expandir para outros profissionais de saude (enfermeiros, fisioterapeutas, dentistas)</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>SaaS ou ferramenta propria para consultorio medico (high-ticket recorrente)</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB: AUDIT -->
+<div class="tab-panel" id="tab-audit">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(96,165,250,0.12);color:var(--brand-blue)">A</div>
+<div>
+<div class="card-title">Audit Analysis</div>
+<div class="card-subtitle">Score: 60/100</div>
+</div>
+</div>
+
+<h3 class="section-title">Performance Atual</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Seguidores</div>
+<div class="metric-value">~5K</div>
+<div class="metric-sub">Perfil em crescimento organico</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Engajamento Est.</div>
+<div class="metric-value" style="color:var(--brand-green)">Alto</div>
+<div class="metric-sub">Nicho tecnico engaja bem (audiencia qualificada)</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Autenticidade</div>
+<div class="metric-value" style="color:var(--brand-green)">Limpo</div>
+<div class="metric-sub">Perfil organico, construido recentemente</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Evento</div>
+<div class="metric-value" style="color:var(--brand-cyan)">Estruturado</div>
+<div class="metric-sub">Imersao Don.ai ja com LP e preco definido</div>
+</div>
+</div>
+
+<h3 class="section-title">Pontos Fortes</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>Credenciais fortes e verificaveis: CRM ativo, MBA PUC-PR, cursando MIT</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Timing perfeito: mercado nascente com regulamentacao recente do CFM</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Evento ja estruturado com LP, preco e data definidos</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Founder de 4 empresas ativas: experiencia empreendedora solida</li>
+</ul>
+
+<h3 class="section-title">Pontos Fracos</h3>
+<ul class="insight-list">
+<li class="insight-item negative"><span class="insight-bullet"></span>Base de seguidores ainda pequena (~5K). Precisa escalar rapido.</li>
+<li class="insight-item negative"><span class="insight-bullet"></span>Pouca prova social publicada: faltam depoimentos e cases</li>
+<li class="insight-item negative"><span class="insight-bullet"></span>Precisa de mais conteudo recorrente e consistente</li>
+</ul>
+
+<h3 class="section-title">Gargalos Criticos</h3>
+<ul class="insight-list">
+<li class="insight-item warning"><span class="insight-bullet"></span>Crescimento da audiencia: precisa de estrategia agressiva de conteudo + trafego</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>Conversao de seguidores em compradores: funil precisa ser otimizado</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>Construcao de autoridade de longo prazo: nao pode depender so do evento</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB: DIRECTION -->
+<div class="tab-panel" id="tab-direction">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(52,211,153,0.12);color:var(--brand-green)">D</div>
+<div>
+<div class="card-title">Direction Analysis</div>
+<div class="card-subtitle">Score: 78/100</div>
+</div>
+</div>
+
+<h3 class="section-title">Estrategia Central</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Modelo</div>
+<div class="metric-value" style="font-size:18px">Low-ticket Entry</div>
+<div class="metric-sub">Imersao R$147 como porta de entrada</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Upsell</div>
+<div class="metric-value" style="font-size:18px">Mentoria / Consultoria</div>
+<div class="metric-sub">De R$147 para high-ticket recorrente</div>
+</div>
+</div>
+
+<h3 class="section-title">Quick Wins (Implementacao Imediata)</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>Reels com "antes vs depois" da rotina medica com IA (viral potential alto)</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Posts com numeros impactantes: "30min por prontuario virou 10min"</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Depoimentos de medicos que ja usam as tecnicas (prova social)</li>
+</ul>
+
+<h3 class="section-title">Plano 90 Dias</h3>
+<div class="product-item">
+<div class="product-num">1</div>
+<div class="product-info">
+<div class="product-name">Fase 1: Awareness (Dias 1-30)</div>
+<div class="product-desc">Conteudo educativo diario. Reels, carrosseis e stories mostrando IA na pratica medica. Objetivo: dobrar seguidores.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">2</div>
+<div class="product-info">
+<div class="product-name">Fase 2: Engajamento (Dias 31-60)</div>
+<div class="product-desc">Lives semanais, stories de bastidor, enquetes. Construir comunidade engajada que confia no Don.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">3</div>
+<div class="product-info">
+<div class="product-name">Fase 3: Conversao (Dias 61-90)</div>
+<div class="product-desc">Lancamento da imersao + remarketing agressivo. Funil completo: conteudo > lead magnet > imersao > mentoria.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TAB: MONETIZACAO -->
+<div class="tab-panel" id="tab-monetizacao">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(251,191,36,0.12);color:var(--brand-amber)">$</div>
+<div>
+<div class="card-title">Monetizacao</div>
+<div class="card-subtitle">Produto principal + funil de upsell</div>
+</div>
+</div>
+
+<!-- EVENT CARD -->
+<div class="event-card">
+<div class="event-title">Imersao Don.ai - IA para Medicos</div>
+<div class="event-date">02 de maio de 2026 | Online ao vivo, dia inteiro</div>
+<p style="font-size:14px;color:var(--text);margin-bottom:12px;font-style:italic">"A IA nao veio pra te substituir. Veio pra te libertar."</p>
+<p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">5 aplicacoes de IA demonstradas ao vivo para utilizar no consultorio, UTI ou enfermaria. Voce sai com o processo, nao com teoria.</p>
+
+<div class="price-grid">
+<div class="price-card highlight">
+<div class="price-type">Investimento</div>
+<div class="price-value">R$147</div>
+<div class="price-detail">Menos que uma consulta medica</div>
+</div>
+<div class="price-card">
+<div class="price-type">Projecao (200 inscritos)</div>
+<div class="price-value" style="color:var(--brand-green)">R$29.400</div>
+<div class="price-detail">200 x R$147 = faturamento estimado</div>
+</div>
+</div>
+</div>
+
+<h3 class="section-title">5 Aplicacoes Demonstradas ao Vivo</h3>
+<div class="product-item">
+<div class="product-num">1</div>
+<div class="product-info">
+<div class="product-name">Pre-Consulta Inteligente</div>
+<div class="product-desc">Quiz personalizado que o paciente responde antes de entrar. Medico recebe dados organizados automaticamente.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">2</div>
+<div class="product-info">
+<div class="product-name">Transcricao + Prontuario com IA</div>
+<div class="product-desc">De 30-40 min por paciente para 10 min. IA transcreve e gera entregaveis automaticamente.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">3</div>
+<div class="product-info">
+<div class="product-name">Pos-Consulta Automatizada</div>
+<div class="product-desc">Quiz de retorno que compara evolucao. Paciente ve melhora documentada.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">4</div>
+<div class="product-info">
+<div class="product-name">Conteudo e Marketing com IA</div>
+<div class="product-desc">Landing page, post, artigo, SEO, criativos gerados em minutos. Construcao de autoridade digital.</div>
+</div>
+</div>
+<div class="product-item">
+<div class="product-num">5</div>
+<div class="product-info">
+<div class="product-name">Dashboard de Gestao da Clinica</div>
+<div class="product-desc">Metricas em tempo real: agendamentos, faturamento, retorno, NPS. Tudo num painel unico.</div>
+</div>
+</div>
+
+<h3 class="section-title">O que esta Incluso</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span>5 aplicacoes demonstradas ao vivo com implementacao guiada</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Processo ja implantado ao final do evento</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Playbook dos 5 processos em PDF</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Frameworks prontos para utilizar na clinica</li>
+<li class="insight-item positive"><span class="insight-bullet"></span>Acesso ao evento online completo</li>
+</ul>
+
+<h3 class="section-title">Stats Prometidos</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Tempo Economizado</div>
+<div class="metric-value">2-3h/dia</div>
+<div class="metric-sub">Economia diaria com automacoes de IA</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Custo Basico</div>
+<div class="metric-value" style="color:var(--brand-green)">R$0</div>
+<div class="metric-sub">Implementacao basica sem custo</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Custo Completo</div>
+<div class="metric-value" style="font-size:20px">R$200-600</div>
+<div class="metric-sub">/mes (substitui sistemas de R$2-3K/mes)</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Resultado</div>
+<div class="metric-value" style="font-size:18px">1 dia</div>
+<div class="metric-sub">Sai com processo implantado no mesmo dia</div>
+</div>
+</div>
+
+<h3 class="section-title">Funil de Upsell</h3>
+<div class="funnel-step">
+<span class="funnel-arrow">&#9654;</span>
+<span class="funnel-label">Conteudo organico (Reels, Stories, Lives)</span>
+<span class="funnel-rate">Awareness</span>
+</div>
+<div class="funnel-step">
+<span class="funnel-arrow">&#9654;</span>
+<span class="funnel-label">Lead magnet (PDF gratuito / Mini-aula)</span>
+<span class="funnel-rate">Captura</span>
+</div>
+<div class="funnel-step">
+<span class="funnel-arrow">&#9654;</span>
+<span class="funnel-label">Imersao Don.ai - R$147 (low-ticket)</span>
+<span class="funnel-rate">Conversao</span>
+</div>
+<div class="funnel-step">
+<span class="funnel-arrow">&#9654;</span>
+<span class="funnel-label">Mentoria / Consultoria (high-ticket)</span>
+<span class="funnel-rate">Upsell</span>
+</div>
+<div class="funnel-step">
+<span class="funnel-arrow">&#9654;</span>
+<span class="funnel-label">SaaS / Ferramenta propria (recorrente)</span>
+<span class="funnel-rate">Escala</span>
+</div>
+
+<h3 class="section-title">FAQ Relevante</h3>
+<ul class="insight-list">
+<li class="insight-item neutral"><span class="insight-bullet"></span>Nao precisa saber programar. Tudo e guiado passo a passo.</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>CFM publicou Resolucao 2.454/2026 regulamentando IA na medicina. E legal e etico.</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Vale pra clinica privada, UTI e enfermaria. Qualquer ambiente medico.</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB: PLANO 30 DIAS -->
+<div class="tab-panel" id="tab-plano30">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(251,113,133,0.12);color:var(--brand-rose)">30</div>
+<div>
+<div class="card-title">Plano de Crescimento 30 Dias</div>
+<div class="card-subtitle">Calendario completo por semana</div>
+</div>
+</div>
+
+<div class="week-card" data-week="1">
+<div class="week-title">Semana 1: Awareness</div>
+<div class="week-subtitle">Objetivo: Gerar consciencia e atrair audiencia qualificada</div>
+<ul class="task-list">
+<li class="task-item"><span class="task-bullet">&#9632;</span>3 Reels/semana: "Antes vs depois da minha rotina com IA"</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Reel: "Quanto tempo voce gasta no prontuario?" (enquete nos comentarios)</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Reel: "CFM aprovou IA: o que muda pra voce" (conteudo educativo viral)</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Stories diarios: bastidores do consultorio usando IA (dia a dia real)</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Hashtags foco: #IAparaMedicos #MedicinaDigital #IAnaMedicina</li>
+</ul>
+</div>
+
+<div class="week-card" data-week="2">
+<div class="week-title">Semana 2: Engajamento</div>
+<div class="week-subtitle">Objetivo: Construir comunidade e confianca</div>
+<ul class="task-list">
+<li class="task-item"><span class="task-bullet">&#9632;</span>Live: "5 coisas que todo medico deveria automatizar com IA"</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Carrossel: "A IA nao vai te substituir. Vai te libertar." (educativo)</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Enquetes nos stories: "Quanto tempo voce gasta no prontuario por dia?"</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Caixinha de perguntas: "Qual sua maior dificuldade com tecnologia?"</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Responder TODOS os DMs e comentarios (relacionamento)</li>
+</ul>
+</div>
+
+<div class="week-card" data-week="3">
+<div class="week-title">Semana 3: Conversao</div>
+<div class="week-subtitle">Objetivo: Abrir carrinho e converter audiencia em inscritos</div>
+<ul class="task-list">
+<li class="task-item"><span class="task-bullet">&#9632;</span>Abrir carrinho da imersao oficialmente</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Reels de urgencia: "02 de maio. 1 dia. 5 processos implantados."</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Depoimentos de medicos que ja testaram as tecnicas</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Stories com CTA direto pro link de inscricao</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Email marketing pra lista de leads (se houver)</li>
+</ul>
+</div>
+
+<div class="week-card" data-week="4">
+<div class="week-title">Semana 4: Fechamento</div>
+<div class="week-subtitle">Objetivo: Ultimas conversoes + preparacao do evento</div>
+<ul class="task-list">
+<li class="task-item"><span class="task-bullet">&#9632;</span>Contagem regressiva nos stories (todo dia)</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>"Ultimas vagas" com escassez real</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>FAQ nos stories: respondendo objecoes comuns</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Trafego pago direcionado pra LP da imersao</li>
+<li class="task-item"><span class="task-bullet">&#9632;</span>Remarketing em quem visitou a LP mas nao comprou</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- TAB: PLANO DE VENDAS -->
+<div class="tab-panel" id="tab-vendas">
+<div class="card">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(167,139,250,0.12);color:var(--brand-purple)">&#9733;</div>
+<div>
+<div class="card-title">Plano de Vendas da Imersao</div>
+<div class="card-subtitle">Estrategia completa para o evento de 02/mai</div>
+</div>
+</div>
+
+<h3 class="section-title">Metricas-Alvo</h3>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Meta de Inscritos</div>
+<div class="metric-value">200</div>
+<div class="metric-sub">Meta conservadora para primeiro evento</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Faturamento Meta</div>
+<div class="metric-value" style="color:var(--brand-green)">R$29.400</div>
+<div class="metric-sub">200 inscritos x R$147</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Meta Otimista (400)</div>
+<div class="metric-value" style="color:var(--brand-amber)">R$58.800</div>
+<div class="metric-sub">400 inscritos x R$147</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Custo por Lead Est.</div>
+<div class="metric-value" style="font-size:20px">R$5-15</div>
+<div class="metric-sub">Via trafego pago segmentado</div>
+</div>
+</div>
+
+<h3 class="section-title">Estrategia de Venda</h3>
+<ul class="insight-list">
+<li class="insight-item positive"><span class="insight-bullet"></span><strong>Escassez real:</strong> "Vagas limitadas" com contagem regressiva visivel</li>
+<li class="insight-item positive"><span class="insight-bullet"></span><strong>Autoridade:</strong> Reforcar credenciais (CRM ativo, MBA PUC, MIT) em toda comunicacao</li>
+<li class="insight-item positive"><span class="insight-bullet"></span><strong>Prova social:</strong> Depoimentos de medicos que ja usam IA na pratica</li>
+<li class="insight-item positive"><span class="insight-bullet"></span><strong>Urgencia temporal:</strong> Data fixa (02/mai), nao tem "depois eu vejo"</li>
+<li class="insight-item positive"><span class="insight-bullet"></span><strong>Comparacao de valor:</strong> R$147 = menos que uma consulta. Economia de 2-3h/dia = milhares de reais/mes</li>
+</ul>
+
+<h3 class="section-title">Elementos de Urgencia</h3>
+<ul class="insight-list">
+<li class="insight-item warning"><span class="insight-bullet"></span>"O CFM ja regulamentou. Quem nao se adaptar vai ficar pra tras."</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>"Seus colegas ja estao usando. A questao nao e SE, e QUANDO."</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>"30 min por prontuario x 10 min com IA = 7 horas economizadas por dia"</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>"R$147 hoje. Ou R$2-3K/mes em sistemas que fazem menos."</li>
+</ul>
+
+<h3 class="section-title">Cronograma do Evento</h3>
+<div class="timeline-item">
+<div class="timeline-date">14-20/Abr</div>
+<div class="timeline-content">
+<div class="timeline-title">Pre-lancamento</div>
+<div class="timeline-desc">Conteudo educativo, lives, construcao de lista de espera</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">21-27/Abr</div>
+<div class="timeline-content">
+<div class="timeline-title">Abertura de Carrinho</div>
+<div class="timeline-desc">Lancamento oficial, trafego pago, remarketing, depoimentos</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">28/Abr-01/Mai</div>
+<div class="timeline-content">
+<div class="timeline-title">Fechamento</div>
+<div class="timeline-desc">Ultimas vagas, contagem regressiva, FAQ, escassez real</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">02/Mai</div>
+<div class="timeline-content">
+<div class="timeline-title">Dia do Evento</div>
+<div class="timeline-desc">Imersao Don.ai ao vivo. 5 aplicacoes. Processo implantado.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">03-09/Mai</div>
+<div class="timeline-content">
+<div class="timeline-title">Pos-Evento</div>
+<div class="timeline-desc">Follow-up, depoimentos, abertura de mentoria/consultoria (upsell)</div>
+</div>
+</div>
+
+<h3 class="section-title">Publico-Alvo Detalhado</h3>
+<ul class="insight-list">
+<li class="insight-item neutral"><span class="insight-bullet"></span>Medicos que querem otimizar rotina com IA (principal)</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Medicos de clinica privada, UTI, enfermaria</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Medicos que gastam 30-40 min por prontuario (dor aguda)</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Profissionais de saude que querem construir autoridade digital</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Medicos que querem economizar 2-3h por dia</li>
+</ul>
+</div>
+</div>
+
+<!-- TAB: SPIN SELLING -->
+<div class="tab-panel" id="tab-spin">
+<div class="card" style="margin-bottom:24px">
+<div class="card-header">
+<div class="card-icon" style="background:rgba(34,211,238,0.12);color:var(--brand-cyan)">S</div>
+<div>
+<div class="card-title">Treinamento SPIN Selling</div>
+<div class="card-subtitle">Dossie completo para SDR vender a Imersao Don.ai</div>
+</div>
+</div>
+<p style="font-size:14px;color:var(--text-secondary);line-height:1.7">Este treinamento ensina o agente SDR a qualificar e converter medicos interessados em IA na imersao do Dr. Don Martins. Siga as etapas na ordem. Adapte o tom para o publico medico: profissional, respeitoso, sem informalidade excessiva.</p>
+</div>
+
+<!-- RAPPORT -->
+<div class="spin-step" data-step="rapport">
+<div class="spin-step-header">
+<div class="spin-step-number">1</div>
+<div>
+<div class="spin-step-title">Rapport</div>
+<div class="spin-step-subtitle">Primeiro contato e conexao</div>
+</div>
+</div>
+<div class="quote-block">
+"Oi! Eu sou [Nome], do time do Dr. Don Martins. Vi que voce e medico(a) e se interessa por IA na medicina."
+</div>
+<ul class="insight-list">
+<li class="insight-item neutral"><span class="insight-bullet"></span>Pergunte a especialidade do medico (demonstra interesse genuino)</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Tom: profissional, respeitoso, sem ser informal demais</li>
+<li class="insight-item warning"><span class="insight-bullet"></span>NUNCA trate como leigo. Publico medico e altamente qualificado (30-60 anos, alta escolaridade)</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Use "doutor(a)" ou "Dr./Dra." no tratamento inicial</li>
+</ul>
+</div>
+
+<!-- SITUACAO -->
+<div class="spin-step" data-step="situacao">
+<div class="spin-step-header">
+<div class="spin-step-number">2</div>
+<div>
+<div class="spin-step-title">Situacao (S)</div>
+<div class="spin-step-subtitle">Mapear contexto e realidade atual do medico</div>
+</div>
+</div>
+<p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Perguntas para entender o cenario atual:</p>
+<ul class="question-list">
+<li class="question-item">Qual sua especialidade?</li>
+<li class="question-item">Atende em consultorio proprio, clinica ou hospital?</li>
+<li class="question-item">Quantos pacientes atende por dia?</li>
+<li class="question-item">Quanto tempo gasta com prontuario/documentacao?</li>
+<li class="question-item">Ja usa alguma ferramenta de IA no dia a dia?</li>
+<li class="question-item">Tem equipe ou trabalha solo?</li>
+</ul>
+<ul class="insight-list" style="margin-top:12px">
+<li class="insight-item neutral"><span class="insight-bullet"></span>Escute mais do que fale. O objetivo e coletar informacao, nao vender ainda.</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Anote as respostas. Cada dado sera usado nas proximas etapas.</li>
+</ul>
+</div>
+
+<!-- PROBLEMA -->
+<div class="spin-step" data-step="problema">
+<div class="spin-step-header">
+<div class="spin-step-number">3</div>
+<div>
+<div class="spin-step-title">Problema (P)</div>
+<div class="spin-step-subtitle">Identificar dores e frustrações</div>
+</div>
+</div>
+<p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Dores comuns do publico medico:</p>
+<ul class="pain-list">
+<li class="pain-item"><span class="pain-num">1</span>Gasta 30-40 min por prontuario (metade do dia em burocracia)</li>
+<li class="pain-item"><span class="pain-num">2</span>Nao tem tempo pra marketing/conteudo (paciente nao acha no Google)</li>
+<li class="pain-item"><span class="pain-num">3</span>Nao consegue escalar (atende X pacientes e nao tem como crescer)</li>
+<li class="pain-item"><span class="pain-num">4</span>Burnout (trabalha 12h, metade e administrativo)</li>
+<li class="pain-item"><span class="pain-num">5</span>Sabe que IA existe mas nao sabe por onde comecar</li>
+<li class="pain-item"><span class="pain-num">6</span>Medo de "fazer errado" com IA e ter problema etico/legal</li>
+</ul>
+<ul class="insight-list" style="margin-top:12px">
+<li class="insight-item neutral"><span class="insight-bullet"></span>Nao empurre a dor. Deixe o medico falar. Use as respostas da etapa 2 pra conectar.</li>
+<li class="insight-item neutral"><span class="insight-bullet"></span>Se ele mencionar qualquer dessas dores, aprofunde: "E como isso afeta sua rotina?"</li>
+</ul>
+</div>
+
+<!-- IMPLICACAO -->
+<div class="spin-step" data-step="implicacao">
+<div class="spin-step-header">
+<div class="spin-step-number">4</div>
+<div>
+<div class="spin-step-title">Implicacao (I)</div>
+<div class="spin-step-subtitle">Amplificar as consequencias da inacao</div>
+</div>
+</div>
+<p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Calculos de impacto para usar na conversa:</p>
+<div class="metric-grid">
+<div class="metric-card">
+<div class="metric-label">Tempo Perdido/Dia</div>
+<div class="metric-value" style="color:var(--brand-rose)">~7h</div>
+<div class="metric-sub">30min x 20 pacientes = 10h. Com IA: 3h20. Economia: 6h40.</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Tempo Perdido/Mes</div>
+<div class="metric-value" style="color:var(--brand-rose)">~140h</div>
+<div class="metric-sub">Horas que poderiam ser usadas para atender, criar conteudo ou viver</div>
+</div>
+</div>
+<ul class="question-list" style="margin-top:12px">
+<li class="question-item">Se voce gasta 30 min por prontuario com 20 pacientes/dia, sao 10 horas so em documentacao</li>
+<li class="question-item">Com IA, isso cai pra 10 min por paciente = 3h20. Voce economiza quase 7 horas por dia</li>
+<li class="question-item">7 horas por dia = 140 horas por mes que voce poderia usar pra atender mais pacientes, criar conteudo, ou simplesmente viver</li>
+<li class="question-item">O CFM ja regulamentou (Resolucao 2.454/2026). Quem nao se adaptar vai ficar pra tras</li>
+<li class="question-item">Seus colegas ja estao usando. A questao nao e SE, e QUANDO</li>
+</ul>
+</div>
+
+<!-- OFERTA / PAYOFF -->
+<div class="spin-step" data-step="payoff">
+<div class="spin-step-header">
+<div class="spin-step-number">5</div>
+<div>
+<div class="spin-step-title">Oferta (Necessidade-Payoff)</div>
+<div class="spin-step-subtitle">Apresentar a solucao</div>
+</div>
+</div>
+<p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Script de apresentacao da imersao:</p>
+<ul class="question-list">
+<li class="question-item">No dia 02 de maio, o Dr. Don vai fazer uma imersao online ao vivo mostrando 5 aplicacoes praticas de IA pra medicos</li>
+<li class="question-item">Nao e teoria. Voce sai com o processo implantado no mesmo dia</li>
+<li class="question-item">Pre-consulta inteligente, prontuario com IA, pos-consulta automatizada, marketing e dashboard de gestao</li>
+<li class="question-item">Inclui playbook em PDF com os 5 frameworks pra usar na clinica</li>
+<li class="question-item">As condicoes e detalhes estao todos no site. Da uma olhada</li>
+</ul>
+
+<div style="margin-top:16px;padding:12px 16px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.15);border-radius:var(--radius-xs)">
+<p style="font-size:13px;color:var(--brand-green);font-weight:600;margin-bottom:4px">Link de Inscricao:</p>
+<p style="font-size:14px;color:var(--text)"><a href="https://imersao.donmartins.ai/#inscricao" style="color:var(--brand-cyan);text-decoration:none" target="_blank">https://imersao.donmartins.ai/#inscricao</a></p>
+<p style="font-size:11px;color:var(--text-muted);margin-top:4px">Envie o link UMA VEZ. Nao insista.</p>
+</div>
+</div>
+
+<!-- REGRAS DO AGENTE -->
+<div class="rules-box">
+<div class="rules-title">Regras do Agente SDR</div>
+<ul class="rules-list">
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-rose)">&#10005;</span>NUNCA mencione preco explicito. Diga: "confere os detalhes e condicoes no site"</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-green)">&#10003;</span>Tom profissional e respeitoso (publico medico, 30-60 anos, alta escolaridade)</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-rose)">&#10005;</span>Nao seja informal demais, nao use girias</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-green)">&#10003;</span>Mencione SEMPRE as credenciais do Don: CRM ativo, MBA PUC-PR, MIT</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-green)">&#10003;</span>Reforce que e LEGAL e ETICO: Resolucao CFM 2.454/2026</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-rose)">&#10005;</span>Se perguntar preco: "As condicoes estao todas no site, da uma olhada"</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-green)">&#10003;</span>Link permitido: https://imersao.donmartins.ai/#inscricao</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-rose)">&#10005;</span>NUNCA prometa resultados especificos de faturamento</li>
+<li class="rule-item"><span class="rule-icon" style="color:var(--brand-green)">&#10003;</span>Use os dados de implicacao (140h/mes economizadas) para criar urgencia</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer-brand">Naia Intelligence</div>
+<p class="footer-text">Analise gerada por Naia | Denderson Rodrigues</p>
+<p class="footer-text" style="margin-top:4px">14 de abril de 2026</p>
+</div>
+</footer>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+btn.classList.add('active');
+document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+});
+});
+
+// Animate score bars on load
+window.addEventListener('load',()=>{
+document.querySelectorAll('.score-bar-fill').forEach(bar=>{
+const w=bar.style.width;
+bar.style.width='0%';
+setTimeout(()=>{bar.style.width=w},200);
+});
+});
+</script>
+</body>
+</html>
